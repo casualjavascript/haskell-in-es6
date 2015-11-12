@@ -1,0 +1,28 @@
+{
+  "name": "es6hs",
+  "version": "0.1.0",
+  "description": "Native ES6 implementations of haskell functions",
+  "main": "ƒ.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --harmony"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mateogianolio/es6hs.git"
+  },
+  "keywords": [
+    "ƒ",
+    "haskell",
+    "es6"
+    "native"
+  ],
+  "author": "Mateo Gianolio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mateogianolio/es6hs/issues"
+  },
+  "homepage": "https://github.com/mateogianolio/es6hs#readme"
+}
