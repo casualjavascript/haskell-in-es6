@@ -1,14 +1,17 @@
 # ƒ
 
-### Blog
-* https://mateogianolio.com/blog/haskell-in-es6
-
 ### Install & usage
 
 ```bash
-$ npm install es6hs
+$ git clone https://github.com/casualjs/f
 ```
 
 ```javascript
-var ƒ = require('es6hs');
+var ƒ = require('ƒ');
+```
+
+Test with `mocha`:
+
+```bash
+$ mocha --harmony
 ```
