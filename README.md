@@ -1,6 +1,6 @@
 # ƒ
 
-### Blog posts
+### Blog
 * https://mateogianolio.com/blog/haskell-in-es6
 
 ### Install & usage
