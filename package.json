@@ -16,7 +16,7 @@
   "keywords": [
     "ƒ",
     "haskell",
-    "es6"
+    "es6",
     "native"
   ],
   "author": "Mateo Gianolio",
@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/mateogianolio/es6hs/issues"
   },
-  "homepage": "https://github.com/mateogianolio/es6hs#readme"
+  "homepage": "https://github.com/mateogianolio/es6hs#readme",
+  "devDependencies": {
+    "mocha": "^2.3.3"
+  }
 }
