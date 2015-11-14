@@ -7,13 +7,13 @@
   describe('ƒ.comp()',
     () => it('should be able to compose three functions correctly',
       () => {
-        var mul = x => x + x,
+        var add = x => x + x,
             pow = x => x * x,
             inv = x => 1 / x,
-            comp = ƒ.comp(mul, pow, inv);
+            comp = ƒ.comp(add, pow, inv);
 
-        assert.equal(1/4, comp(1));
-        assert.equal(1/64, comp(4));
+        assert.equal(2, comp(1));
+        assert.equal(1/8, comp(4));
       }
     )
   );

@@ -9,12 +9,12 @@
      **/
     comp:
       (...fs) => {
+        fs = fs.reverse();
         return (...args) =>
-          fs.map(
-            f =>
-              args = [f.apply(null, args)]
-          ).pop();
-        },
+          fs.reduce(
+            (g, f) => f.bind(null, g(...args))
+          )();
+      },
 
     /**
      * Flip function arguments
@@ -24,7 +24,7 @@
     flip:
       f =>
         (...args) =>
-          f.apply(null, args.reverse()),
+          f(...args.reverse()),
 
     /**
      * Applies a function which is passed as the second argument to
@@ -39,7 +39,7 @@
     until:
       (condition, f) =>
         (...args) => {
-          var r = f.apply(null, args);
+          var r = f(...args);
           return condition(r) ? r : ƒ.until(condition, f)(r);
         },
 
@@ -47,11 +47,11 @@
      * List operations
      **/
     head:
-      (...xs) => xs[0],
+      (x, ...xs) => x,
     last:
       (...xs) => xs.slice(-1),
     tail:
-      (...xs) => Array.prototype.slice.call(xs, 1),
+      (x, ...xs) => xs,
     init:
       (...xs) => xs.slice(0, -1),
 
@@ -76,7 +76,7 @@
       (...xs) => {
         var r = [],
             nple = [],
-            length = Math.min.apply(null, xs.map(x => x.length));
+            length = Math.min(...xs.map( x => x.length ));
 
         for (var i = 0; i < length; i++) {
           xs.forEach(
@@ -99,7 +99,7 @@
      **/
     zipWith:
       (op, ...xs) =>
-        ƒ.zip.apply(null, xs).map(
+        ƒ.zip(...xs).map(
           (x) => x.reduce(op)
         )
   };
