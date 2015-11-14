@@ -9,9 +9,8 @@
      **/
     comp:
       (...fs) => {
-        fs = fs.reverse();
         return (...args) =>
-          fs.reduce(
+          fs.reduceRight(
             (g, f) => f.bind(null, g(...args))
           )();
       },
@@ -21,10 +20,7 @@
      * @param f function to flip
      * @return f applied with args in reverse order
      **/
-    flip:
-      f =>
-        (...args) =>
-          f(...args.reverse()),
+    flip: f => (...args) => f(...args.reverse()),
 
     /**
      * Applies a function which is passed as the second argument to
@@ -76,7 +72,7 @@
       (...xs) => {
         var r = [],
             nple = [],
-            length = Math.min(...xs.map( x => x.length ));
+            length = Math.min(...xs.map(x => x.length));
 
         for (var i = 0; i < length; i++) {
           xs.forEach(
