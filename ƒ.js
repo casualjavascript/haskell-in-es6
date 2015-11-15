@@ -6,10 +6,10 @@
  * @return composed function
  **/
 export function comp (...fs) {
-  return (...args) =>
+  return (v, ...args) =>
     fs.reduceRight(
-      (g, f) => f.bind(null, g(...args))
-    )();
+      (g, f) => f(g, ...args), v
+    );
 }
 
 /**

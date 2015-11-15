@@ -1,7 +1,7 @@
 {
-  "name": "es6hs",
+  "name": "f",
   "version": "0.1.0",
-  "description": "Native ES6 implementations of haskell functions",
+  "description": "Native ES6 implementations of Haskell functions",
   "main": "./lib/ƒ.js",
   "directories": {
     "test": "test",
@@ -27,7 +27,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mateogianolio/es6hs.git"
+    "url": "git+https://github.com/casualjs/f.git"
   },
   "keywords": [
     "ƒ",
@@ -38,9 +38,9 @@
   "author": "Mateo Gianolio",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mateogianolio/es6hs/issues"
+    "url": "https://github.com/casualjs/f/issues"
   },
-  "homepage": "https://github.com/mateogianolio/es6hs#readme",
+  "homepage": "https://github.com/casualjs/f#readme",
   "devDependencies": {
     "babel": "^6.1.18",
     "babel-cli": "^6.1.18",

@@ -102,7 +102,7 @@ describe('ƒ.concat()',
 describe('ƒ.concatMap()',
   () => {
     var map = x => 'hi ' + x;
-    it('should return all but last argument',
+    it('should map and concatenate results',
       () => assert.deepEqual(['hi 1', 'hi 2', 'hi 3'], ƒ.concatMap(map, 1, [[2]], 3))
     );
     it('should work on arrays',
@@ -112,7 +112,7 @@ describe('ƒ.concatMap()',
 );
 
 describe('ƒ.zip()',
-  () => it('should form a list of n-ples of n arrays',
+  () => it('should form a list of n-ples from n arrays',
     () => {
       var a = [0, 1, 2],
         b = [3, 4, 5],
