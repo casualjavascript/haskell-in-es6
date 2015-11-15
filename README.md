@@ -10,8 +10,9 @@ $ git clone https://github.com/casualjs/f
 var ƒ = require('ƒ');
 ```
 
-Test with `mocha`:
+### Test
 
 ```bash
-$ mocha --harmony
+$ npm install
+$ npm test
 ```
