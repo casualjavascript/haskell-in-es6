@@ -74,6 +74,39 @@ export function concatMap (f, ...xs) {
 }
 
 /**
+ * Infinite lists
+ **/
+export function iterate (f, x) {
+  return Proxy.create({
+    get: (_, n) => {
+      var r = x;
+      for (var i = 0; i < n; i++)
+        r = f(r);
+      return r;
+    }
+  });
+}
+
+export function repeat (x) {
+  return Proxy.create({
+    get: () => x
+  });
+}
+
+export function replicate (count, x) {
+  var r = [];
+  for (var i = 0; i < count; i++)
+    r.push(x);
+  return r;
+}
+
+export function cycle(xs) {
+  return Proxy.create({
+    get: (_, n) => xs[n % xs.length]
+  });
+}
+
+/**
  * Zip two arrays into a list of n-ples
  * @param ...xs arrays to zip
  * @return a list of of n-ples
@@ -117,6 +150,10 @@ export default {
   tail,
   init,
   concat,
+  iterate,
+  repeat,
+  replicate,
+  cycle,
   concatMap,
   zip,
   zipWith

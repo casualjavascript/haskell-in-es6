@@ -115,6 +115,49 @@ describe('ƒ.concatMap()',
   }
 );
 
+describe('ƒ.iterate()',
+  () => it('should return a proxy simulating an infinite list of repeated applications of f to x',
+    () => {
+      var iterate = ƒ.iterate(x => x * 2, 1);
+      assert.equal(2, iterate[1]);
+      assert.equal(16, iterate[4]);
+      assert.equal(128, iterate[7]);
+    }
+  )
+);
+
+describe('ƒ.repeat()',
+  () => it('should return a proxy simulating an infinite list of xs',
+    () => {
+      var repeat = ƒ.repeat(10);
+      assert.equal(10, repeat[0]);
+      assert.equal(10, repeat[10]);
+      assert.equal(10, repeat[9999]);
+    }
+  )
+);
+
+describe('ƒ.replicate()',
+  () => it('should return an array of count xs',
+    () => {
+      var replicate = ƒ.replicate(10, 5);
+      for (var i = 0; i < 10; i++)
+        assert.equal(5, replicate[i]);
+    }
+  )
+);
+
+describe('ƒ.cycle()',
+  () => it('should return a proxy simulating an infinite list of repeated cycles of xs',
+    () => {
+      var list = [0, 1, 2],
+          cycle = ƒ.cycle([0, 1, 2]);
+      for (var i = 0; i < 10; i++)
+        assert.equal(i % list.length, cycle[i]);
+    }
+  )
+);
+
 describe('ƒ.zip()',
   () => it('should form a list of n-ples from n arrays',
     () => {
