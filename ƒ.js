@@ -78,9 +78,12 @@ export function concatMap (f, ...xs) {
  **/
 export function iterate (f, x) {
   return Proxy.create({
-    get: (_, n) => {
+    get: (_, property) => {
+      if (isNaN(property))
+        return Infinity;
+
       var r = x;
-      for (var i = 0; i < n; i++)
+      for (var i = 0; i < property; i++)
         r = f(r);
       return r;
     }
@@ -89,21 +92,48 @@ export function iterate (f, x) {
 
 export function repeat (x) {
   return Proxy.create({
-    get: () => x
+    get: (_, property) =>
+      isNaN(property) ?
+        Infinity : x
   });
 }
 
 export function replicate (count, x) {
+  if (count === Infinity)
+    return repeat(x);
+
   var r = [];
   for (var i = 0; i < count; i++)
     r.push(x);
   return r;
 }
 
-export function cycle(xs) {
+export function cycle (xs) {
   return Proxy.create({
-    get: (_, n) => xs[n % xs.length]
+    get: (_, property) =>
+      isNaN(property) ?
+        Infinity : xs[property % xs.length]
   });
+}
+
+/**
+ * Sublists
+ * TODO: drop
+ * TODO: splitAt
+ * TODO: takeWhile
+ * TODO: dropWhile
+ * TODO: span
+ * TODO: break
+ **/
+export function take (n, xs) {
+  if (n === Math.max(n, xs.length))
+    return xs;
+
+  var r = [];
+  for (var i = 0; i < n; i++)
+    r.push(xs[i]);
+
+  return r;
 }
 
 /**
@@ -137,7 +167,7 @@ export function zip (...xs) {
  **/
 export function zipWith (op, ...xs) {
   return zip(...xs).map(
-    (x) => x.reduce(op)
+    x => x.reduce(op)
   );
 }
 
@@ -150,11 +180,12 @@ export default {
   tail,
   init,
   concat,
+  concatMap,
   iterate,
   repeat,
   replicate,
   cycle,
-  concatMap,
+  take,
   zip,
   zipWith
 };

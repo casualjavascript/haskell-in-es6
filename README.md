@@ -27,28 +27,28 @@ $ npm test
 
 **Miscellaneous functions:**
 
-* [`(.)`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:.) as `ƒ.comp`,
-* [`flip`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:flip) as `ƒ.flip`,
-* and [`until`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:until) as `ƒ.until`.
+* [x] [`(.)`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:.) as `ƒ.comp`,
+* [x] [`flip`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:flip) as `ƒ.flip`,
+* [x] and [`until`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:until) as `ƒ.until`.
 
 **List operations:**
-* [`head`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:head) as `ƒ.head`,
-* [`last`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:last) as `ƒ.last`,
-* [`tail`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:tail) as `ƒ.tail`,
-* and [`init`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:head) as `ƒ.init`.
+* [x] [`head`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:head) as `ƒ.head`,
+* [x] [`last`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:last) as `ƒ.last`,
+* [x] [`tail`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:tail) as `ƒ.tail`,
+* [x] and [`init`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:head) as `ƒ.init`.
 
 **Special folds:**
 
-* [`concat`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:concat) as `ƒ.concat`,
-* and [`concatMap`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:concatMap) as `ƒ.concatMap`.
+* [x] [`concat`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:concat) as `ƒ.concat`,
+* [x] and [`concatMap`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:concatMap) as `ƒ.concatMap`.
 
 **Infinite lists:**
 
-* [`iterate`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:iterate) as `ƒ.iterate`,
-* [`repeat`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:repeat) as `ƒ.repeat`,
-* [`replicate`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:replicate) as `ƒ.replicate`,
-* and [`cycle`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:cycle) as `ƒ.cycle`.
+* [x] [`iterate`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:iterate) as `ƒ.iterate`,
+* [x] [`repeat`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:repeat) as `ƒ.repeat`,
+* [x] [`replicate`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:replicate) as `ƒ.replicate`,
+* [x] and [`cycle`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:cycle) as `ƒ.cycle`.
 
 **Zipping and unzipping lists:**
-* [`zip`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:zip) as `ƒ.zip`,
-* and [`zipWith`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:zipWith) as `ƒ.zipWith`.
+* [x] [`zip`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:zip) as `ƒ.zip`,
+* [x] and [`zipWith`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:zipWith) as `ƒ.zipWith`.
