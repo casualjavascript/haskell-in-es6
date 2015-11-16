@@ -49,6 +49,10 @@ $ npm test
 * [x] [`replicate`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:replicate) as `ƒ.replicate`,
 * [x] and [`cycle`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:cycle) as `ƒ.cycle`.
 
+**Sublists:**
+
+[`take`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:take) as `ƒ.take`.
+
 **Zipping and unzipping lists:**
 * [x] [`zip`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:zip) as `ƒ.zip`,
 * [x] and [`zipWith`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:zipWith) as `ƒ.zipWith`.
