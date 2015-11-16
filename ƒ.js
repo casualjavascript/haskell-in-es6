@@ -18,7 +18,8 @@ export function comp (...fs) {
  * @return f applied with args in reverse order
  **/
 export function flip (f) {
-  return (...args) => f(...args.reverse());
+  return (a, b, ...args) =>
+    f(b, a, ...args);
 }
 
 /**

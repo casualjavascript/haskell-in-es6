@@ -21,10 +21,14 @@ describe('ƒ.flip()',
   () => it('should apply function with flipped arguments',
     () => {
       var add = (a, b) => a / b,
-        flip = ƒ.flip(add);
+          three = (a, b, c) => [a, b, c],
+          flip = ƒ.flip(add);
 
       assert.equal(1/2, flip(10, 5));
       assert.equal(10, flip(1, 10));
+
+      flip = ƒ.flip(three);
+      assert.deepEqual([2, 1, 3], flip(1, 2, 3));
     }
   )
 );
