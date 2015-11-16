@@ -51,7 +51,7 @@ $ npm test
 
 **Sublists:**
 
-[`take`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:take) as `ƒ.take`.
+* [x] [`take`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:take) as `ƒ.take`.
 
 **Zipping and unzipping lists:**
 * [x] [`zip`](http://hackage.haskell.org/package/base-4.8.1.0/docs/Prelude.html#v:zip) as `ƒ.zip`,
