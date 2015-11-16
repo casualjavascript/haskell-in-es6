@@ -80,7 +80,7 @@ export function concatMap (f, ...xs) {
 export function zip (...xs) {
   var r = [],
     nple = [],
-    length = Math.min(...xs.map( x => x.length ));
+    length = Math.min(...xs.map(x => x.length));
 
   for (var i = 0; i < length; i++) {
     xs.forEach(
