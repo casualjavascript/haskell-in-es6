@@ -76,7 +76,7 @@ describe('ƒ.tail()',
       () => assert.deepEqual([27, 3, 1], ƒ.tail(5, 27, 3, 1))
     );
     it('should work on arrays',
-      () => assert.deepEqual([27, 3, 1], ƒ.tail.apply(null, [5, 27, 3, 1]))
+      () => assert.deepEqual([27, 3, 1], ƒ.tail(...[5, 27, 3, 1]))
     );
   }
 );
@@ -87,7 +87,7 @@ describe('ƒ.init()',
       () => assert.deepEqual([5, 27, 3], ƒ.init(5, 27, 3, 1))
     );
     it('should work on arrays',
-      () => assert.deepEqual([5, 27, 3], ƒ.init.apply(null, [5, 27, 3, 1]))
+      () => assert.deepEqual([5, 27, 3], ƒ.init(...[5, 27, 3, 1]))
     );
   }
 );
@@ -98,7 +98,7 @@ describe('ƒ.concat()',
       () => assert.deepEqual([5, 27, 3], ƒ.concat([5], [27], [3]))
     );
     it('should work on arrays',
-      () => assert.deepEqual([5, 27, 3], ƒ.concat.apply(null, [[5], [27], [3]]))
+      () => assert.deepEqual([5, 27, 3], ƒ.concat(...[[5], [27], [3]]))
     );
   }
 );
@@ -110,7 +110,114 @@ describe('ƒ.concatMap()',
       () => assert.deepEqual(['hi 1', 'hi 2', 'hi 3'], ƒ.concatMap(map, 1, [[2]], 3))
     );
     it('should work on arrays',
-      () => assert.deepEqual(['hi 1', 'hi 2', 'hi 3'], ƒ.concatMap.bind(null, map).apply(null, [1, [2], [[3]]]))
+      () => assert.deepEqual(['hi 1', 'hi 2', 'hi 3'], ƒ.concatMap.bind(null, map)(...[1, [2], [[3]]]))
+    );
+  }
+);
+
+describe('ƒ.iterate()',
+  () => it('should return a proxy simulating an infinite list of repeated applications of f to x',
+    () => {
+      var iterate = ƒ.iterate(x => x * 2, 1);
+      assert.equal(2, iterate[1]);
+      assert.equal(16, iterate[4]);
+      assert.equal(128, iterate[7]);
+    }
+  )
+);
+
+describe('ƒ.repeat()',
+  () => it('should return a proxy simulating an infinite list of xs',
+    () => {
+      var repeat = ƒ.repeat(10);
+      assert.equal(10, repeat[0]);
+      assert.equal(10, repeat[10]);
+      assert.equal(10, repeat[9999]);
+    }
+  )
+);
+
+describe('ƒ.cycle()',
+  () => it('should return a proxy simulating an infinite list of repeated cycles of xs',
+    () => {
+      var list = [0, 1, 2],
+          cycle = ƒ.cycle(list);
+      for (var i = 0; i < 10; i++)
+        assert.equal(i % list.length, cycle[i]);
+    }
+  )
+);
+
+describe('ƒ.take()',
+  () => {
+    it('should take n elements from xs or xs if n >= xs.length',
+      () => {
+        var list = [0, 1, 2, 3, 4, 5];
+
+        assert.deepEqual([0, 1, 2], ƒ.take(3, list));
+        assert.deepEqual([0, 1, 2, 3, 4, 5], ƒ.take(10, list));
+      }
+    );
+
+    it('should work with infinite lists',
+      () => assert.deepEqual([0, 1, 2, 0, 1, 2], ƒ.take(6, ƒ.cycle([0, 1, 2])))
+    );
+  }
+);
+
+describe('ƒ.drop()',
+  () => {
+    it('should drop n elements from xs or [] if n >= xs.length',
+      () => {
+        var list = [0, 1, 2, 3, 4, 5];
+
+        assert.deepEqual([3, 4, 5], ƒ.drop(3, list));
+        assert.deepEqual([], ƒ.drop(10, list));
+      }
+    );
+
+    it('should work with infinite lists',
+      () => assert.deepEqual([2, 0, 1, 2], ƒ.take(4, ƒ.drop(2, ƒ.cycle([0, 1, 2]))))
+    );
+  }
+);
+
+describe('ƒ.splitAt()',
+  () => {
+    it('should return a tuple with [take(n, xs), drop(n, xs)]',
+      () => {
+        assert.deepEqual([[0, 1, 2], [3, 4, 5]], ƒ.splitAt(3, [0, 1, 2, 3, 4, 5]));
+        assert.deepEqual([[], [0, 1, 2]], ƒ.splitAt(-1, [0, 1, 2]));
+        assert.deepEqual([[0, 1, 2], []], ƒ.splitAt(3, [0, 1, 2]));
+      }
+    );
+
+    it('should work with infinite lists',
+      () => assert.deepEqual([2, 0, 1, 2], ƒ.take(4, ƒ.drop(2, ƒ.cycle([0, 1, 2]))))
+    );
+  }
+);
+
+describe('ƒ.takeWhile()',
+  () => {
+    it('should return the longest prefix of xs of elements that satisfy f',
+      () => assert.deepEqual([0, 1, 2], ƒ.takeWhile(x => x < 3, [0, 1, 2, 3, 4, 5]))
+    );
+
+    it('should work with infinite lists',
+      () => assert.deepEqual([0, 1, 2], ƒ.takeWhile(x => x < 3, ƒ.cycle([0, 1, 2, 3, 4, 5])))
+    );
+  }
+);
+
+describe('ƒ.dropWhile()',
+  () => {
+    it('should return the suffix remaining after takeWhile(f, xs)',
+      () => assert.deepEqual([3, 4, 5], ƒ.dropWhile(x => x < 3, [0, 1, 2, 3, 4, 5]))
+    );
+
+    it('should work with infinite lists',
+      () => assert.deepEqual(3, ƒ.dropWhile(x => x < 3, ƒ.cycle([0, 1, 2, 3, 4, 5]))[0])
     );
   }
 );

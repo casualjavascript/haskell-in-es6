@@ -23,7 +23,7 @@
     "build:lib": "BABEL_ENV=production babel ./ƒ.js --out-dir lib",
     "build": "npm run build:lib",
     "prepublish": "npm test && npm run build",
-    "test": "mocha  --compilers js:babel-core/register"
+    "test": "mocha --harmony-proxies --compilers js:babel-core/register"
   },
   "repository": {
     "type": "git",
