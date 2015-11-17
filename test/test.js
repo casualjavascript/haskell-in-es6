@@ -49,47 +49,27 @@ describe('ƒ.until()',
 );
 
 describe('ƒ.head()',
-  () => {
-    it('should return first argument',
-      () => assert.equal(5, ƒ.head(5, 27, 3, 1))
-    );
-    it('should work on arrays',
-      () => assert.equal(5, ƒ.head.apply(null, [5, 27, 3, 1]))
-    );
-  }
+  () => it('should return first argument',
+    () => assert.equal(5, ƒ.head([5, 27, 3, 1]))
+  )
 );
 
 describe('ƒ.last()',
-  () => {
-    it('should return last argument',
-      () => assert.equal(1, ƒ.last(5, 27, 3, 1))
-    );
-    it('should work on arrays',
-      () => assert.equal(1, ƒ.last.apply(null, [5, 27, 3, 1]))
-    );
-  }
+  () => it('should return last argument',
+    () => assert.equal(1, ƒ.last([5, 27, 3, 1]))
+  )
 );
 
 describe('ƒ.tail()',
-  () => {
-    it('should return all but first argument',
-      () => assert.deepEqual([27, 3, 1], ƒ.tail(5, 27, 3, 1))
-    );
-    it('should work on arrays',
-      () => assert.deepEqual([27, 3, 1], ƒ.tail(...[5, 27, 3, 1]))
-    );
-  }
+  () => it('should return all but first argument',
+    () => assert.deepEqual([27, 3, 1], ƒ.tail([5, 27, 3, 1]))
+  )
 );
 
 describe('ƒ.init()',
-  () => {
-    it('should return all but last argument',
-      () => assert.deepEqual([5, 27, 3], ƒ.init(5, 27, 3, 1))
-    );
-    it('should work on arrays',
-      () => assert.deepEqual([5, 27, 3], ƒ.init(...[5, 27, 3, 1]))
-    );
-  }
+  () => it('should return all but last argument',
+    () => assert.deepEqual([5, 27, 3], ƒ.init([5, 27, 3, 1]))
+  )
 );
 
 describe('ƒ.concat()',

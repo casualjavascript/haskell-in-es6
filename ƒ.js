@@ -42,10 +42,10 @@ export function until (condition, f){
 /**
  * List operations
  **/
-export function head (x, ...xs) { return x; }
-export function last (...xs) { return xs.slice(-1); }
-export function tail (x, ...xs) { return xs; }
-export function init (...xs) { return xs.slice(0, -1); }
+export function head (xs) { return xs[0]; }
+export function last (xs) { return xs[xs.length - 1]; }
+export function tail (xs) { return xs.slice(1); }
+export function init (xs) { return xs.slice(0, -1); }
 
 /**
  * Special folds
