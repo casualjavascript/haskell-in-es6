@@ -2,8 +2,8 @@
 
 Implementing native versions of  [Haskell](https://haskell.org) functions according to JavaScript ES6 standards.
 
-1. [Haskell in ES6: Part 1](http://casualjavascript.com/javascript/es6/haskell/native/implementation/2015/11/12/haskell-in-es6-part-1.html)
-2. [Haskell in ES6: Part 2](http://casualjavascript.com/javascript/es6/haskell/native/implementation/2015/11/17/haskell-in-es6-part-2.html)
+1. [Haskell in ES6: Part 1](http://casualjavascript.com/?1)
+2. [Haskell in ES6: Part 2](http://casualjavascript.com/?2)
 
 ### Install & usage
 
